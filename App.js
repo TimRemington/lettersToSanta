@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import {Platform, StyleSheet, Text, View, SafeAreaView, Image, Dimensions} from 'react-native';
 import SantaLetter from './components/santa-letter/santa-letter.js'
+import Presents from './components/presents/presents.js'
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component{
 
   state = {
     letter: 'Input presents here',
@@ -17,29 +17,46 @@ export default class App extends Component<Props> {
     })
   }
   render() {
+    console.log(this.state)
     return (
-      <SafeAreaView style={{flex:1}}>
+      <View>
         <View style={styles.container}>
           <Text style={styles.welcome}>Dear Santa,</Text>
           <SantaLetter letter={this.state.letter} sendToSanta = {this.sendToSanta}/>
-
-
         </View>
-      </SafeAreaView>
+        <View>
+          {this.state.isSentToSanta ? <Presents/> : <Image style={styles.image} source={require('./images/tree.jpg')}/>}
+        </View>
+      </View>
     );
   }
 }
 
+// Styling for the height
+const height = Dimensions.get('window').height
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingTop: 30,
+    width: '100%',
+    height: height * 0.4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F89696',
+    backgroundColor: '#63EC7F',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  image: {
+    paddingTop: 20,
+    height: height * 0.6,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green'
   }
+
+
 });

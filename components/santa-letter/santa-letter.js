@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AppRegistry, Platform, StyleSheet, Text, View, SafeAreaView, TextInput, Button} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView, TextInput, Button} from 'react-native';
 
 export default class SantaLetter extends Component {
 
@@ -9,15 +9,11 @@ export default class SantaLetter extends Component {
     })
   }
 
-  onSubmit(){
-    console.log('Submitted')
-  }
-
   render() {
-    const { letter } = this.props.letter
+    const { letter, sendToSanta } = this.props
 
     return (
-      <SafeAreaView style={{flex:1}}>
+      <View style={{flex:1}}>
         <TextInput
           placeholder='Write the gifts you want here!'
           style={{height: 150, width: 340, borderColor: 'gray', borderWidth: 2, backgroundColor: 'white'}}
@@ -28,12 +24,9 @@ export default class SantaLetter extends Component {
         <Button
           title="Email Santa"
           style={{borderColor: 'green', borderWidth: 1}}
-          
+          onPress={()=>{sendToSanta(this.state.textValue)}}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }
-
-AppRegistry.registerComponent('SantaLetter', () => SantaLetter);
-  //onChangeText={(text) => this.setState({text})}
