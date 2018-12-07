@@ -14,7 +14,7 @@ export default class SantaLetter extends Component {
   }
 
   render() {
-    const { letter } = this.props.letter
+    const { letter, sendToSanta } = this.props
 
     return (
       <SafeAreaView style={{flex:1}}>
@@ -28,6 +28,7 @@ export default class SantaLetter extends Component {
         <Button
           title="Email Santa"
           style={{borderColor: 'green', borderWidth: 1}}
+          onPress={()=>{sendToSanta(this.state.textValue)}}
         />
       </SafeAreaView>
     );
