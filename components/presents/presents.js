@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Image, FlatList, TouchableOpacity} from 'react-native';
 
 const image = require('../../images/giftbox.png')
 const array = [ image, image, image, image ]
+
 export default class Presents extends Component{
   renderItem = item => {
     return (
-      <View style={styles.image}>
+      <TouchableOpacity
+        style={styles.image}
+        onPress=
+      >
         <Image
           source={ image }
         />
-      </View>
+      </TouchableOpacity>
     )
   }
 
