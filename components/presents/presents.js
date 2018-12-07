@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
 
-const image = require('../')
+const image = require('../../images/giftbox.png')
 const array = [ image, image, image, image ]
 export default class Presents extends Component{
   renderItem = item => {
     return (
-      <View>
+      <View style={styles.image}>
         <Image
           source={ image }
-
         />
       </View>
     )
@@ -22,6 +21,8 @@ export default class Presents extends Component{
           data={ array }
           keyExtractor={ (item, index) => index.toString() }
           renderItem={ ({item}) => this.renderItem(item) }
+          horizontal={false}
+          numColumns={2}
         />
       </View>
     );
@@ -30,8 +31,10 @@ export default class Presents extends Component{
 
 const styles = {
   container: {
-    flexDirection: 'row',
-    margin: 20,
-    justifyContent: 'space-between'
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  image: {
+    padding: 10
   }
 }
