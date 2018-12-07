@@ -28,6 +28,7 @@ export default class SantaLetter extends Component {
         <Button
           title="Email Santa"
           style={{borderColor: 'green', borderWidth: 1}}
+          
         />
       </SafeAreaView>
     );

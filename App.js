@@ -10,12 +10,18 @@ export default class App extends Component<Props> {
     isSentToSanta: false,
   }
 
+  sendToSanta = (letter) => {
+    this.setState({
+      letter: letter,
+      isSentToSanta: true
+    })
+  }
   render() {
     return (
       <SafeAreaView style={{flex:1}}>
         <View style={styles.container}>
-          <Text style={styles.welcome}>Dear Santa</Text>
-          <SantaLetter letter={this.state.letter} />
+          <Text style={styles.welcome}>Dear Santa,</Text>
+          <SantaLetter letter={this.state.letter} sendToSanta = {this.sendToSanta}/>
 
 
         </View>
