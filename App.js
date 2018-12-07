@@ -24,11 +24,11 @@ export default class App extends Component{
           <Text style={styles.welcome}>Dear Santa,</Text>
           <SantaLetter letter={this.state.letter} sendToSanta = {this.sendToSanta}/>
         </View>
-        <View>
+        <View style={styles.presents}>
           {this.state.isSentToSanta ? <Presents/> : <Image style={styles.image} source={require('./images/tree.jpg')}/>}
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'green'
+  },
+  presents: {
+    backgroundColor: 'green'
   }
-
-
 });
